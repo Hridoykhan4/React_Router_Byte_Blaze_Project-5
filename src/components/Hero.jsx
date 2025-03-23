@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <div className="hero min-h-[60vh]  items-end ">
+    <div className="hero items-end ">
       <div className="hero-content text-center ">
         <div className="max-w-lg">
           <h1 className="text-5xl font-bold">

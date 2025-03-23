@@ -9,9 +9,7 @@ a.active {
 .navbar a:hover {
   background-color: skyblue;
   color: white;
-  scale: 1.1;
-  transition: all;
-  transition-duration: 1s;
+
 }
 
 .animate-gradient {

@@ -1,20 +1,27 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigation } from "react-router-dom";
 import Footer from "../components/footer";
+import Loader from "../components/Loader";
+
+
 
 const MainLayout = () => {
+  const navigation = useNavigation();
+
   return (
     <>
-      <div className="flex flex-col h-screen">
-        <header className="min-h-16">
+      <div className="">
+        <header className="h-16">
           <Navbar></Navbar>
         </header>
 
-        <main className="grow ">
+        <main className="min-h-[50vh]">
           <section>
-            <Outlet></Outlet>
+            {
+              navigation.state === 'loading' ? <Loader></Loader> : <Outlet></Outlet>
+            }
           </section>
         </main>
 
