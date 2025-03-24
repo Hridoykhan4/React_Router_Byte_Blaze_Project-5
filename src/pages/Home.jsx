@@ -1,11 +1,17 @@
-import Hero from "../components/hero";
-import wave from '../assets/wave.svg'
+import wave from "../assets/wave.svg";
+import Hero from "../components/Hero";
 const Home = () => {
   return (
-    <div className="min-h-screen relative">
-        <Hero></Hero>
-        <img src={wave} alt="" className="absolute w-full bottom-0" />
-    </div>
+    <>
+      <div className="">
+        <div className="min-h-[calc(100vh-300px)] flex justify-center">
+          <Hero></Hero>
+        </div>
+        <div className="w-full">
+          <img src={wave} alt="" className=" w-full " />
+        </div>
+      </div>
+    </>
   );
 };
 

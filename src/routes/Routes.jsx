@@ -22,25 +22,25 @@ export const router = createBrowserRouter([
         loader: () => fetch("https://dev.to/api/articles?per_page=20&top=7"),
       },
       {
-        path: "/blog/:id",
-        element: <Blog></Blog>,
-        loader: ({ params }) =>
-          fetch(`https://dev.to/api/articles/${params.id}`),
-        children: [
-          {
-            path: "author",
-            element: <Author></Author>,
-            loader: ({ params }) =>
-              fetch(`https://dev.to/api/articles/${params.id}`),
-          },
-          {
-            index: true,
-            element: <Content></Content>,
-            loader: ({ params }) =>
-              fetch(`https://dev.to/api/articles/${params.id}`),
-          },
-        ],
-      },
+          path: "/blog/:id",
+          loader: ({ params }) =>
+            fetch(`https://dev.to/api/articles/${params.id}`),
+          element: <Blog />,
+          children: [
+            {
+                index: true,
+                loader: ({ params }) =>
+                fetch(`https://dev.to/api/articles/${params.id}`),
+                element: <Content/>
+            },
+            {
+                path: "author",
+                loader: ({ params }) =>
+                fetch(`https://dev.to/api/articles/${params.id}`),
+                element: <Author/>
+            },
+          ]
+        },
       {
         path: "/bookmarks",
         element: <Bookmarks></Bookmarks>,
