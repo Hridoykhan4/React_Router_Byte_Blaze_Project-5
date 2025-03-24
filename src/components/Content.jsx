@@ -19,23 +19,23 @@ const Content = () => {
     >
       <img
         role="presentation"
-        className="object-cover w-full rounded h-44 bg-gray-500 dark:bg-gray-500"
+        className="object-cover w-full rounded h-44"
         src={image || social_image}
       />
-      <div className="flex flex-wrap py-6 gap-2 border-t border-dashed border-gray-400 dark:border-gray-600">
+      <div className="flex flex-wrap py-6 gap-2 border-t border-dashed">
         {tags.map((tag, i) => (
           <a
             key={i}
             rel="noopener noreferrer"
             href=""
-            className="px-3 py-1 rounded-sm hover:underline bg-violet-400 dark:bg-violet-600 text-gray-900 dark:text-gray-50"
+            className="px-3 py-1 rounded-sm hover:underline bg-violet-400 dark:bg-violet-600 "
           >
             # {tag}
           </a>
         ))}
       </div>
 
-      <div className="space-y-2 text-black">
+      <div className="space-y-2 ">
         <a
           href={url}
           target="_blank"

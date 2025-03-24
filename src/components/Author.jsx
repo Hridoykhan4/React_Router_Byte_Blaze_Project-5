@@ -12,7 +12,7 @@ const Author = () => {
   } = blog.user;
   return (
     <div className="my-3 flex justify-center">
-      <div className="flex flex-col justify-center w-full shadow-md rounded-xl sm:px-12 dark:bg-gray-900 dark:text-gray-100">
+      <div className="flex flex-col justify-center w-full shadow-md rounded-xl sm:px-12 ">
         <img
           src={profile_image}
           alt=""

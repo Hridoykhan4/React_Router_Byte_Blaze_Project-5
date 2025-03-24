@@ -11,26 +11,23 @@ const BlogCard = ({ blog, deletable, handleDelete }) => {
     social_image,
   } = blog;
 
-    
-
   return (
-    <div className="relative mr-5 border p-3 border-gray-300 rounded-lg">
+    <div className="relative mr-5 border p-3  rounded-lg">
       <Link
         to={`/blog/${id}`}
-        
         href="#"
         className="max-w-sm  p-3 mx-auto ease-in-out duration-500 group transition  hover:scale-105 border-primary hover:border-secondary border-opacity-30 hover:no-underline focus:no-underline"
       >
         <img
           role="presentation"
-          className="object-cover w-full rounded h-44 bg-gray-500 dark:bg-gray-500"
+          className="object-cover w-full rounded h-44"
           src={image || social_image}
         />
         <div className="p-6 space-y-2">
           <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">
             {title}
           </h3>
-          <span className="text-xs text-gray-400 dark:text-gray-600">
+          <span className="text-xs ">
             {new Date(published_at).toLocaleDateString("en-GB")}
           </span>
           <p>{description}</p>

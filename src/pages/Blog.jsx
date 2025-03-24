@@ -1,9 +1,7 @@
-import {  useState } from "react";
-import { Link, Outlet, useLoaderData } from "react-router-dom";
+import { Link, Outlet, useLoaderData, useLocation } from "react-router-dom";
 import { saveBlog } from "../components/utils/local";
 
 const Blog = () => {
-  const [tabIndex, setTabIndex] = useState(0);
   const blog = useLoaderData();
   const {
     title,
@@ -12,10 +10,8 @@ const Blog = () => {
     reading_time_minutes,
     published_at,
   } = blog;
-  
-  // useEffect(() => {
-  //   console.log(tabIndex);
-  // }, [tabIndex]);
+
+  const location = useLocation();
 
   const handleBookMark = (blog) => {
     saveBlog(blog);
@@ -23,12 +19,12 @@ const Blog = () => {
 
   return (
     <div className="max-w-3xl px-6 py-16 mx-auto space-y-12">
-      <article className="space-y-8 bg-gray-800 dark:bg-gray-100 text-gray-50 dark:text-gray-900">
+      <article className="space-y-8 ">
         <div className="space-y-6">
           <a className="text-4xl font-bold md:tracking-tight md:text-5xl">
             {title}
           </a>
-          <div className="flex flex-col items-start justify-between w-full md:flex-row md:items-center text-gray-400 dark:text-gray-600">
+          <div className="flex flex-col items-start justify-between w-full md:flex-row md:items-center ">
             <p className="text-sm">
               {reading_time_minutes} min read •{" "}
               {new Date(published_at).toLocaleDateString("en-GB")}
@@ -38,16 +34,14 @@ const Blog = () => {
             </p>
           </div>
         </div>
-        <div className="text-gray-100 dark:text-gray-800">
-          <p>Insert the actual text content here...</p>
-        </div>
 
-        <div className="flex items-center -mx-4 overflow-x-auto overflow-y-hidden sm:justify-start flex-nowrap ">
+        <div className="flex items-center  overflow-x-auto overflow-y-hidden sm:justify-start flex-nowrap ">
           <Link
-            onClick={() => setTabIndex(0)}
             to=""
             className={`flex cursor-pointer items-center flex-shrink-0 px-5 py-3 space-x-2 ${
-              tabIndex === 0 ? "border border-b-0" : "border-b"
+              !location.pathname.endsWith("author")
+                ? "border border-b-0"
+                : "border-b"
             }  `}
           >
             <svg
@@ -65,10 +59,11 @@ const Blog = () => {
             <span>Content</span>
           </Link>
           <Link
-            onClick={() => setTabIndex(1)}
             to="author"
             className={`flex cursor-pointer items-center flex-shrink-0 px-5 py-3 space-x-2 ${
-              tabIndex === 1 ? "border border-b-0" : "border-b"
+              location.pathname.endsWith("author")
+                ? "border border-b-0"
+                : "border-b"
             }  `}
           >
             <svg

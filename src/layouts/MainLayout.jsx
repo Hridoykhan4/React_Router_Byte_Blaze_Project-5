@@ -5,8 +5,6 @@ import { Outlet, useNavigation } from "react-router-dom";
 import Footer from "../components/footer";
 import Loader from "../components/Loader";
 
-
-
 const MainLayout = () => {
   const navigation = useNavigation();
 
@@ -19,9 +17,11 @@ const MainLayout = () => {
 
         <main className="min-h-[calc(100vh-116px)]">
           <section>
-            {
-              navigation.state === 'loading' ? <Loader></Loader> : <Outlet></Outlet>
-            }
+            {navigation.state === "loading" ? (
+              <Loader></Loader>
+            ) : (
+              <Outlet></Outlet>
+            )}
           </section>
         </main>
 
